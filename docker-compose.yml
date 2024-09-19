@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Pass@000
+      MYSQL_DATABASE: qna
+      MYSQL_USER: qnauser
+      MYSQL_PASSWORD: Pass@000
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    container_name: qna-app  # Explicit container name for the Flask application
+    build:
+      context: .  # The context is the root of your project (where Dockerfile exists)
+    environment:
+      FLASK_APP: login_page.py
+      FLASK_ENV: development
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+     - ./qna-backend:/app/qna-backend
+     - ./qna-frontend:/app/qna-frontend
+
+
