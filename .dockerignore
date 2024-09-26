@@ -24,6 +24,7 @@ db.py
 Dockerfile
 docker-compose.yml
 .dockerignore
+mysql_data
 
 # Ignore system files
 .DS_Store
