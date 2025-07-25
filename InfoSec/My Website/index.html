@@ -97,16 +97,98 @@
                 align-items: center;
             }
         }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">Tech Security Solutions</div>
-        <div class="header-buttons">
-            <a href="http://localhost:5001/register" target="_blank"><button>Register</button></a>
-            <a href="http://localhost:5002/login" target="_blank"><button>Login</button></a>
-        </div>
+        /* Quotes Marquee Styles */
+        .quotes-marquee-container {
+            width: 100vw;
+            overflow: hidden;
+            background: rgba(32, 58, 67, 0.92);
+            margin: 32px 0 0 0;
+            border-top: 2px solid #00c3ff22;
+            border-bottom: 2px solid #00c3ff22;
+            padding: 40px 0;
+            min-height: 340px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quotes-marquee-wrapper {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100vw;
+        }
+        .quote-box {
+            width: 420px;
+            height: 320px;
+            background: linear-gradient(135deg, #00c3ff33 0%, #3a7bd533 100%);
+            border-radius: 28px;
+            box-shadow: 0 4px 24px rgba(0,195,255,0.13);
+            padding: 36px 36px;
+            color: #fff;
+            font-size: 1.35rem;
+            font-style: italic;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 1;
+            transition: transform 1.2s cubic-bezier(0.77,0,0.175,1), opacity 0.7s;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .quote-box.hide {
+            opacity: 0;
+            transform: translate(50vw, -50%);
+        }
+        .quote-box.show {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        .quote-box.slide-out {
+            opacity: 0;
+            transform: translate(-150vw, -50%);
+        }
+        .quote-box span {
+            font-size: 1.1rem;
+            color: #00c3ff;
+            font-style: normal;
+            margin-top: 18px;
+        }
+        @media (max-width: 700px) {
+            .quotes-marquee-container {
+                min-height: 180px;
+                padding: 16px 0;
+            }
+            .quotes-marquee-wrapper {
+                width: 100vw;
+                height: 180px;
+            }
+            .quote-box {
+                width: 90vw;
+                height: 180px;
+                font-size: 1rem;
+                padding: 12px 8px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .quote-box.hide {
+                transform: translate(50vw, -50%);
+            }
+            .quote-box.slide-out {
+                transform: translate(-150vw, -50%);
+            }
+        }
     </header>
+
     <main>
         <h1>Our Services</h1>
         <div class="services">
@@ -116,21 +198,48 @@
             </a>
             <a href="network-scanning.html" class="service-card" style="text-decoration:none; color:inherit;">
                 <div class="service-title">Network Scanning</div>
-                <div class="service-desc">Comprehensive network scanning to detect vulnerabilities and unauthorized access points.</div>
-            </a>
-            <a href="compliance.html" class="service-card" style="text-decoration:none; color:inherit;">
-                <div class="service-title">Compliance</div>
-                <div class="service-desc">Ensuring your organization meets industry standards and regulatory requirements.</div>
-            </a>
-            <a href="security-awareness-trainings.html" class="service-card" style="text-decoration:none; color:inherit;">
-                <div class="service-title">Security Awareness Trainings</div>
-                <div class="service-desc">Interactive training sessions to educate your staff on the latest security threats and best practices.</div>
-            </a>
-            <a href="cloud-audits.html" class="service-card" style="text-decoration:none; color:inherit;">
-                <div class="service-title">Cloud Audits</div>
+        .quote-box.hide {
+            opacity: 0;
+            transform: translate(50vw, -50%);
+        }
+        .quote-box.show {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        .quote-box.slide-out {
+            opacity: 0;
+            transform: translate(-150vw, -50%);
+        }
                 <div class="service-desc">Thorough audits of your cloud infrastructure to ensure robust security and compliance.</div>
             </a>
         </div>
+        <!-- Security Quotes Marquee (static, one at a time, slides every 15s) -->
+        <div class="quotes-marquee-container">
+            <div class="quotes-marquee-wrapper">
+                <div class="quote-box show" id="quote0">"Security is not a product, but a process."<br><span>- Bruce Schneier</span></div>
+                <div class="quote-box hide" id="quote1">"The best defense against hackers is a well-informed user."<br><span>- Anonymous</span></div>
+                <div class="quote-box hide" id="quote2">"Only amateurs attack machines; professionals target people."<br><span>- Bruce Schneier</span></div>
+                <div class="quote-box hide" id="quote3">"Cybersecurity is much more than an IT topic, it’s a business imperative."<br><span>- Stephane Nappo</span></div>
+                <div class="quote-box hide" id="quote4">"If you spend more on coffee than on IT security, you will be hacked."<br><span>- Richard Clarke</span></div>
+            </div>
+        </div>
     </main>
 </body>
+<script>
+let currentQuote = 0;
+const totalQuotes = document.querySelectorAll('.quote-box').length;
+setInterval(() => {
+    const prev = currentQuote;
+    const next = (currentQuote + 1) % totalQuotes;
+    document.getElementById('quote'+prev).classList.remove('show');
+    document.getElementById('quote'+prev).classList.add('slide-out');
+    setTimeout(() => {
+        document.getElementById('quote'+prev).classList.remove('slide-out');
+        document.getElementById('quote'+prev).classList.add('hide');
+        document.getElementById('quote'+next).classList.remove('hide');
+        document.getElementById('quote'+next).classList.add('show');
+    }, 1200);
+    currentQuote = next;
+}, 15000);
+</script>
 </html>
