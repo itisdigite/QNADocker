@@ -227,7 +227,7 @@
 </body>
 <script>
 let currentQuote = 0;
-const totalQuotes = 5;
+const totalQuotes = document.querySelectorAll('.quote-box').length;
 setInterval(() => {
     const prev = currentQuote;
     const next = (currentQuote + 1) % totalQuotes;
