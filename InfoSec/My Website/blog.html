@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Tech Security Solutions</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif; 
+            background: linear-gradient(120deg, #232526, #414345); 
+            color: #fff; margin: 0; 
+            
+            padding: 0;}
+        header {
+            background: #030303; 
+            padding: 28px 0 18px 0; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
+        .header-content {
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start; 
+            max-width: 1100px; 
+            margin: 0 auto;}
+        .header-img {
+            height: 48px; 
+            width: 48px; 
+            margin-right: 18px; 
+            border-radius: 8px; 
+            background: #fff; 
+            display: flex; align-items: center; justify-content: center;}
+        .header-img img {
+            height: 38px; 
+            width: 38px; 
+            object-fit: contain;}
+        .header-title {
+            font-size: 2.2rem; 
+            color: #00c3ff; 
+            font-weight: 700; 
+            letter-spacing: 1px;}
+        .container {
+            max-width: 1100px; 
+            margin: 40px auto; 
+            background: rgba(34, 40, 49, 0.95); 
+            border-radius: 16px; 
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3); 
+            padding: 40px 30px 30px 30px;}
+        h2 {
+            color: #00c3ff; 
+            margin-bottom: 24px; 
+            font-size: 1.6rem;}
+        .blog-list {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 40px; 
+            justify-content: center;}
+        .blog-card {
+            background: #232931; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15); 
+            padding: 28px 32px; 
+            min-width: 280px; 
+            max-width: 340px; 
+            text-align: left; 
+            transition: transform 0.2s, box-shadow 0.2s; 
+            display: flex; 
+            flex-direction: column;}
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.04); 
+            box-shadow: 0 8px 32px rgba(0,195,255,0.18);}
+        .blog-title {
+            color: #00c3ff; 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            margin-bottom: 10px;}
+        .blog-content {
+            color: #b2ebf2; 
+            font-size: 1rem; 
+            margin-bottom: 8px;}
+        .add-blog-btn {
+            margin-left: auto;
+            background: #00c3ff;
+            color: #232931;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-right: 8px;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 12px rgba(0,195,255,0.10);
+        }
+        .add-blog-btn:hover {
+            background: #232931;
+            color: #00c3ff;
+            border: 2px solid #00c3ff;
+        }
+        @media (max-width: 1100px) {.container {padding: 20px 8px;} .blog-list {gap: 18px;}}
+        @media (max-width: 900px) {.blog-list {flex-direction: column; align-items: center;}}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Blog Icon" />
+            </div>
+            <span class="header-title">Tech Security Solutions Blogs</span>
+            <a href="add-blog.html" class="add-blog-btn">Add Blog</a>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Latest Blogs</h2>
+        <div class="blog-list">
+            <div class="blog-card">
+                <div class="blog-title">How to Optimize WAF for your Production Environment</div>
+                <div class="blog-content">Learn the best practices and tools to keep your cloud assets safe from modern threats.</div>
+                <a href="https://aws.plainenglish.io/optimizing-your-aws-waf-practical-steps-for-resilient-web-application-security-fa30b735afb7">Learn More</a>
+            </div>
+            <div class="blog-card">
+                <div class="blog-title">Basics of Google Cloud Armor</div>
+                <div class="blog-content">Discover how Google Cloud Armor can help protect your applications from DDoS attacks and other threats.</div>
+                <a href="https://aws.plainenglish.io/shielding-your-cloud-a-hands-on-exploration-of-google-cloud-armor-b100adfe4bcc">Learn More</a>
+            </div>
+            <div class="blog-card">
+                <div class="blog-title">Understanding Compliance in Cybersecurity</div>
+                <div class="blog-content">A quick guide to compliance standards and why they matter for your business security.</div>
+                <a href="https://aws.plainenglish.io/understanding-compliance-in-cybersecurity-5f8b1c2d3e4f">Learn More</a>
+            </div>
+            <div class="blog-card">
+                <div class="blog-title">Network Scanning: The First Step to Defense</div>
+                <div class="blog-content">Discover how regular network scanning can help you identify and fix vulnerabilities early.</div>
+                <a href="https://aws.plainenglish.io/network-scanning-the-first-step-to-defense-4f8b1c2d3e4f">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

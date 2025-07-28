@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Tech Security Solutions</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {font-family: 'Roboto', Arial, sans-serif; background: linear-gradient(120deg, #232526, #414345); color: #fff; margin: 0; padding: 0;}
+        header {background: #030303; padding: 32px 0 16px 0; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
+        header h1 {margin: 0; font-size: 2.2rem; color: #00c3ff;}
+        .container {max-width: 900px; margin: 40px auto; background: rgba(34, 40, 49, 0.95); border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.3); padding: 40px 30px 30px 30px;}
+        h2 {color: #00c3ff; margin-bottom: 24px; font-size: 1.6rem;}
+        .blog-list {display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;}
+        .blog-card {background: #232931; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.15); padding: 28px 32px; min-width: 220px; max-width: 340px; text-align: left; transition: transform 0.2s, box-shadow 0.2s;}
+        .blog-card:hover {transform: translateY(-8px) scale(1.04); box-shadow: 0 8px 32px rgba(0,195,255,0.18);}
+        .blog-title {color: #00c3ff; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;}
+        .blog-content {color: #b2ebf2; font-size: 1rem; margin-bottom: 8px;}
+        form {margin-bottom: 36px; display: flex; flex-direction: column; gap: 14px;}
+        input[type=text], textarea {padding: 10px; border-radius: 8px; border: none; font-size: 1rem;}
+        textarea {resize: vertical; min-height: 60px;}
+        input[type=submit] {background: linear-gradient(90deg, #00c3ff 0%, #3a7bd5 100%); color:#fff; border:none; border-radius:8px; padding:12px; font-size:1.1rem; font-weight:700; cursor:pointer; transition: background 0.3s;}
+        input[type=submit]:hover {background: linear-gradient(90deg, #3a7bd5 0%, #00c3ff 100%);}
+        @media (max-width: 700px) {.container {padding: 20px 8px;} .blog-list {flex-direction: column; gap: 18px;}}
+    </style>
+</head>
+<body>
+    <header><h1>Tech Security Solutions Blog</h1></header>
+    <div class="container">
+        <h2>Add a New Blog</h2>
+        <form method="post">
+            <input type="text" name="title" placeholder="Blog Title" required>
+            <textarea name="content" placeholder="Blog Content" required></textarea>
+            <input type="submit" value="Add Blog">
+        </form>
+        <h2>Recent Blogs</h2>
+        <div class="blog-list">
+            <!-- BLOGS_PLACEHOLDER -->
+        </div>
+    </div>
+</body>
+</html>
